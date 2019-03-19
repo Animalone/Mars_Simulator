@@ -3,7 +3,6 @@ package simulator;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import explorer.MarsExplorer;
