@@ -31,5 +31,13 @@ class MarsExplorerTest {
 		int fallnumber = 3;
 		assertNotEquals(fallnumber, classUnderTest.getX());
 	}
+	
+	//test if explorer can update position correctly
+	void testmove() {
+		MarsExplorer classUnderTest = new MarsExplorer();
+		classUnderTest.setPlaced(true);
+		int fallnumber = 3;
+		assertEquals(fallnumber, classUnderTest.getX());
+	}
 
 }
