@@ -29,7 +29,7 @@ class MarsExplorerTest {
 		MarsExplorer classUnderTest = new MarsExplorer();
 		classUnderTest.setPlaced(false);
 		int fallnumber = 3;
-		assertEquals(null, classUnderTest.getX());
+		assertNotEquals(fallnumber, classUnderTest.getX());
 	}
 
 }
