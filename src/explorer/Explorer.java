@@ -3,9 +3,9 @@ package explorer;
  * Explorer class represent explorer machine
  */
 public class Explorer {
-	private int x;
-	private int y;
-	private boolean placed;
+	protected int x;
+	protected int y;
+	protected boolean placed;
 	public Explorer() {
 	}
 

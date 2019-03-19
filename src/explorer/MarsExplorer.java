@@ -11,5 +11,29 @@ public class MarsExplorer extends Explorer{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	/** Explorer will move to horizontal position 
+	 * if explorer placed on the toptable and will not fall
+	 * after the move 
+	 * @param x : the target's horizontal position
+	 * 
+	 */
+	@Override
+	public void setX(int x) {
+		if(x<= XMAX && x>=XMIN && placed) {
+			this.x = x;
+		}
+	}
+	/** Explorer will move to vertical position 
+	 * if explorer placed on the toptable and will not fall
+	 * after the move 
+	 * @param y : the target's vertical position
+	 * 
+	 */
+	@Override
+	public void setY(int y) {
+		if(y<= YMAX && y>=YMIN && placed) {
+			this.y = y;
+		}
+	}
 }
