@@ -16,9 +16,8 @@ class SimpleCommandHandlerTest {
 		HashMap<String, List<Integer>> dictionary = new HashMap<String, List<Integer>>();
 		dictionary.put("PLACE", List.of(0, 0));
 		dictionary.put("REPORT", null);
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(dictionary);
-		classUnderTest.process();
-		assertEquals("P:(0,0)", classUnderTest.process());
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		assertEquals("P:(0,0)", classUnderTest.process(dictionary));
 	}
 
 }
