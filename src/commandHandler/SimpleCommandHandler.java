@@ -1,9 +1,10 @@
 package commandHandler;
 
 
-import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
+import DataStructure.Command;
 import explorer.Explorer;
 
 /**
@@ -27,21 +28,23 @@ public class SimpleCommandHandler implements CommandHandler{
 	
 	/** process method will will call different command method 
 	 * based on command types.   
-	 * @param dictionary : a HashMap data structure storing command type (as key)
+	 * @param commandList : a LinkedList data structure storing command type (as key)
 	 * and corresponding explorer's target or original position (as value)
 	 * @return a String indicates responses to commands 
 	 */
 	@Override
-	public String process(LinkedHashMap<String, List<Integer>> dictionary) {
+	public String process(LinkedList<Command> commandList) {
 		String response = "";
-		for(String key : dictionary.keySet()){
+		for(int i = 0; i < commandList.size(); i++){
+			String key = commandList.get(i).getCommand();
 			if (key.equals(PLACE)){
-				this.placeXY(dictionary.get(key));
+				this.placeXY(commandList.get(i).getValue());
 			}else if(key.equals(REPORT)){
 				response = response + this.report();
 			}else if (key.equals(MOVE)) {
-				response = response + this.moveXY(dictionary.get(key));
+				response = response + this.moveXY(commandList.get(i).getValue());
 			}
+//			System.out.print(response);
 		}
 		return response;
 		// TODO Auto-generated method stub
@@ -69,12 +72,13 @@ public class SimpleCommandHandler implements CommandHandler{
 	private String moveXY(List<Integer> value) {
 		String response = "";
 		if(this.explore.isPlaced()){
+//			System.out.print("inside of move");
 			int originalX = this.explore.getX();
 			int originalY = this.explore.getY();
-			
+
 			this.explore.setX(value.get(0));
 			this.explore.setY(value.get(1));
-	//		System.out.print(Integer.toString(this.explore.getX())+Integer.toString(this.explore.getY()));
+//			System.out.print(value);
 			if(originalY > this.explore.getY()){
 				for (int i = 0; i <= originalY - this.explore.getY(); i++) {
 					response += "("+ Integer.toString(originalX)+","+Integer.toString(originalY-i)+") ";
@@ -98,8 +102,8 @@ public class SimpleCommandHandler implements CommandHandler{
 				response = "M: "+response;
 			}
 		}
-		System.out.print(response);
-		if (response.length() > 1){
+//		System.out.print(response);
+		if (response.length() > 0){
 			return response.substring(0, response.length() - 1)+"\n";
 		}else {
 			return response;

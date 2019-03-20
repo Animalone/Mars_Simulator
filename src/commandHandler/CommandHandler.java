@@ -1,12 +1,15 @@
 package commandHandler;
 
 
-import java.util.LinkedHashMap;
+
+import java.util.LinkedList;
 import java.util.List;
+
+import DataStructure.Command;
 
 /**
  * CommandHandler interface will process received commands
  */
 public interface CommandHandler {
-	public String process(LinkedHashMap<String, List<Integer>> dictionary);
+	public String process(LinkedList<Command> dictionary);
 }
