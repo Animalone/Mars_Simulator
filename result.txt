@@ -1,0 +1,34 @@
+************************************************
+Welcome to Mars Explorer Simulator System
+You can send command in following protocols
+
+PLACE x,y
+MOVE x,y
+REPORT
+
+Please press enter key twice once you plan to send your command
+The system will keep listening your Command if you only press enter key once
+************************************************
+
+M: (0,0) (0,1) (0,2) (1,2)
+P: (1,2)
+
+P: (0,0)
+
+M: (0,0) (0,1)
+
+M: (0,0) (0,1) (1,1)
+P: (1,1)
+
+P: (0,0)
+
+P: (0,0)
+
+P: (0,0)
+
+
+P: (0,0)
+
+M: (0,0) (0,1) (0,2) (1,2)
+P: (1,2)
+
