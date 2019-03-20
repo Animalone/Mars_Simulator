@@ -21,7 +21,8 @@ class SimpleCommandHandlerTest {
 		commandList.add(new Command("PLACE", List.of(0, 0)));
 		commandList.add(new Command("REPORT", null));
 		MarsExplorer explorer = new MarsExplorer();
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(explorer);
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		classUnderTest.setExplorer(explorer);
 		assertEquals("P: (0,0)\n", classUnderTest.process(commandList));
 	}
 	
@@ -32,7 +33,8 @@ class SimpleCommandHandlerTest {
 		commandList.add(new Command("PLACE", List.of(0, 0)));
 		commandList.add(new Command("MOVE", List.of(0, 1)));
 		MarsExplorer explorer = new MarsExplorer();
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(explorer);
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		classUnderTest.setExplorer(explorer);
 		assertEquals("M: (0,0) (0,1)\n", classUnderTest.process(commandList));
 	}
 	//test if CommandHandler can place the explorer, and print the path after move command (example c)
@@ -43,7 +45,8 @@ class SimpleCommandHandlerTest {
 		commandList.add(new Command("MOVE", List.of(1, 1)));
 		commandList.add(new Command("REPORT", null));
 		MarsExplorer explorer = new MarsExplorer();
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(explorer);
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		classUnderTest.setExplorer(explorer);
 		assertEquals("M: (0,0) (0,1) (1,1)\nP: (1,1)\n", classUnderTest.process(commandList));
 	}
 	//test if MOVE COMMAND will cause the explorer fall
@@ -54,7 +57,8 @@ class SimpleCommandHandlerTest {
 		commandList.add(new Command("MOVE", List.of(6, 6)));
 		commandList.add(new Command("REPORT", null));
 		MarsExplorer explorer = new MarsExplorer();
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(explorer);
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		classUnderTest.setExplorer(explorer);
 		assertEquals("P: (0,0)\n", classUnderTest.process(commandList));
 	}
 	
@@ -66,7 +70,8 @@ class SimpleCommandHandlerTest {
 		commandList.add(new Command("MOVE", List.of(0, 0)));
 		commandList.add(new Command("REPORT", null));
 		MarsExplorer explorer = new MarsExplorer();
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(explorer);
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		classUnderTest.setExplorer(explorer);
 		assertEquals("P: (0,0)\n", classUnderTest.process(commandList));
 	}
 	//test if explorer is not on tabletop when it receive REPORT command
@@ -75,7 +80,8 @@ class SimpleCommandHandlerTest {
 		LinkedList<Command> commandList = new LinkedList<Command>();
 		commandList.add(new Command("REPORT", null));
 		MarsExplorer explorer = new MarsExplorer();
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(explorer);
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		classUnderTest.setExplorer(explorer);
 		assertEquals("", classUnderTest.process(commandList));
 	}
 	
@@ -85,7 +91,8 @@ class SimpleCommandHandlerTest {
 		LinkedList<Command> commandList = new LinkedList<Command>();
 		commandList.add(new Command("MOVE", List.of(0, 0)));
 		MarsExplorer explorer = new MarsExplorer();
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(explorer);
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		classUnderTest.setExplorer(explorer);
 		assertEquals("", classUnderTest.process(commandList));
 	}
 	
@@ -96,7 +103,8 @@ class SimpleCommandHandlerTest {
 		commandList.add(new Command("MOVE", List.of(0, 0)));
 		commandList.add(new Command("REPORT", null));
 		MarsExplorer explorer = new MarsExplorer();
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(explorer);
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		classUnderTest.setExplorer(explorer);
 		assertEquals("", classUnderTest.process(commandList));
 	}
 	//test if explorer can make right movement if it received valid MOVE command after non-valid MOVE command
@@ -109,7 +117,8 @@ class SimpleCommandHandlerTest {
 		commandList.add(new Command("MOVE", List.of(1, 2)));
 		commandList.add(new Command("REPORT", null));
 		MarsExplorer explorer = new MarsExplorer();
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(explorer);
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		classUnderTest.setExplorer(explorer);
 		assertEquals("M: (0,0) (0,1) (0,2) (1,2)\nP: (1,2)\n", classUnderTest.process(commandList));
 	}
 	
@@ -125,7 +134,8 @@ class SimpleCommandHandlerTest {
 		commandList.add(new Command("REPORT", null));
 		MarsExplorer explorer = new MarsExplorer();
 //		System.out.print("test10");
-		SimpleCommandHandler classUnderTest = new SimpleCommandHandler(explorer);
+		SimpleCommandHandler classUnderTest = new SimpleCommandHandler();
+		classUnderTest.setExplorer(explorer);
 		assertEquals("M: (0,0) (0,1) (0,2) (1,2)\nP: (1,2)\n", classUnderTest.process(commandList));
 	}
 	

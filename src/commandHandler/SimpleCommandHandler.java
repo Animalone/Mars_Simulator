@@ -21,11 +21,18 @@ public class SimpleCommandHandler implements CommandHandler{
 	private static final int YMIN = 0;
 	
 	private Explorer explore;
-	public SimpleCommandHandler(Explorer explore) {
-		this.explore = explore;
+	public SimpleCommandHandler() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Explorer getExplorer() {
+		return explore;
+	}
+
+	public void setExplorer(Explorer explore) {
+		this.explore = explore;
+	}
+
 	/** process method will will call different command method 
 	 * based on command types.   
 	 * @param commandList : a LinkedList data structure storing command type (as key)
@@ -79,12 +86,16 @@ public class SimpleCommandHandler implements CommandHandler{
 			this.explore.setX(value.get(0));
 			this.explore.setY(value.get(1));
 //			System.out.print(value);
+			if(originalY != this.explore.getY() || originalX != this.explore.getX()) {
+				response += "("+ Integer.toString(originalX)+","+Integer.toString(originalY)+") ";
+			}
+			
 			if(originalY > this.explore.getY()){
-				for (int i = 0; i <= originalY - this.explore.getY(); i++) {
+				for (int i = 1; i <= originalY - this.explore.getY(); i++) {
 					response += "("+ Integer.toString(originalX)+","+Integer.toString(originalY-i)+") ";
 				}
 			}else if (originalY < this.explore.getY()) {
-				for (int i = 0; i <= this.explore.getY() - originalY; i++) {
+				for (int i = 1; i <= this.explore.getY() - originalY; i++) {
 					response += "("+ Integer.toString(originalX)+","+Integer.toString(originalY+i)+") ";
 				}
 			}
