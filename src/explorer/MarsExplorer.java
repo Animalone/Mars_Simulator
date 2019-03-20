@@ -20,7 +20,7 @@ public class MarsExplorer extends Explorer{
 	 */
 	@Override
 	public void setX(int x) {
-		if(x<= XMAX && x>=XMIN && placed) {
+		if(x<= XMAX && x>=XMIN && placed && this.x != x) {
 			this.x = x;
 		}
 	}
@@ -32,7 +32,7 @@ public class MarsExplorer extends Explorer{
 	 */
 	@Override
 	public void setY(int y) {
-		if(y<= YMAX && y>=YMIN && placed) {
+		if(y<= YMAX && y>=YMIN && placed && this.y != y) {
 			this.y = y;
 		}
 	}
