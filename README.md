@@ -31,6 +31,7 @@ How to use AutoTest:
 AutoTest: Only test results will be displayed, no test case will be shown in the terminal, and those output is stored in result.txt file.
 
 For example:
+
 	testcase: 
 	    MOVE 0,0
 	    MOVE -1,-1
