@@ -5,6 +5,7 @@ Development Environment:
 	openjdk 11
 	
 The package includes 10 files/folder
+
 	bin: folder contains application's class files 
 	src: folder contains application's java source codes
 	test: forlder contains Junit testcase
